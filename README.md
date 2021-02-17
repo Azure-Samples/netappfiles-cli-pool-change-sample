@@ -1,57 +1,91 @@
-# Project Name
+---
+page_type: sample
+languages:
+- bash
+- azurecli
+products:
+- azure
+- azure-netapp-files
+description: "This project demonstrates how to perform a pool change on a Volume for Microsoft.NetApp resource provider using CLI NetAppFile module.
+---
 
-(short, 1-3 sentenced, description of the project)
+# Azure NetAppFiles Pool Change Script Sample for Azure CLI 
 
-## Features
+This project demonstrates how to use CLI NetAppFile module to perform a pool change on a Volume for the Microsoft.NetApp
+resource provider.
 
-This project framework provides the following features:
+In this sample application we perform the following operations:
 
-* Feature 1
-* Feature 2
-* ...
+* Creations
+    * ANF Account
+    * Primary Capacity Pool in service level Premium
+    * Secondary Capacity Pool in service level Standard
+    * Volume in the Primary pool
+* Updates
+    * Perform pool change, moving Volume from Primary capacity pool to Secondary capacity pool
+* Deletions
+    * Volume
+    * Primary Capacity Pool
+    * Secondary Capacity Pool
+    * ANF Account
 
-## Getting Started
+>Note: The cleanup execution is disabled by default. If you want to run this end to end with the cleanup, please
+>change value of boolean variable 'SHOULD_CLEANUP' in anf-pool-change.sh
 
-### Prerequisites
+If you don't already have a Microsoft Azure subscription, you can get a FREE trial account [here](http://go.microsoft.com/fwlink/?LinkId=330212).
 
-(ideally very short, if any)
+## Prerequisites
 
-- OS
-- Library version
-- ...
+1. Azure Subscription
+1. Subscription needs to be enabled for Azure NetApp Files. For more information, please refer to [this](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-register#waitlist) document.
+1. Resource Group created
+1. Virtual Network with a delegated subnet to Microsoft.Netapp/volumes resource. For more information, please refer to [Guidelines for Azure NetApp Files network planning](https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-network-topologies)
+1. Make sure [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) is installed.
+1. Windows with WSL enabled (Windows Subsystem for Linux) or Linux to run the script. This was developed/tested on Ubuntu 18.04 LTS (bash version 4.4.20).
+1. Make sure [jq](https://stedolan.github.io/jq/) package is installed before executing this script.
 
-### Installation
+# What is netappfiles-cli-pool-change-script-sample doing? 
 
-(ideally very short)
+This sample is dedicated to demonstrating how to perform a pool change on a Volume in Azure NetApp Files.
+This project will first create an ANF Account and then two Capacity Pools, one at a Premium service level tier, and another at a Standard service level tier.
+Then it will create a single Volume in the Premium tier Capacity Pool.
+Finally, the sample will perform the pool change operation on the Volume by moving it to the Standard tier Capacity Pool.
 
-- npm install [package name]
-- mvn install
-- ...
+There is a section in the code dedicated to remove created resources. By default this sample will not remove all created resources;
+this behavior is controlled by a string variable called 'SHOULD_CLEANUP' in the anf-pool-change.sh class. If you want to erase all resources right after the
+creation operations, set this variable to 'true'.
 
-### Quickstart
-(Add steps to get up and running quickly)
+# How the project is structured
 
-1. git clone [repository clone url]
-2. cd [respository name]
-3. ...
+The following table describes all files within this solution:
 
+| Folder      | FileName                | Description                                                                                                                         |
+|-------------|-------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
+| Root        | anf-pool-change.sh      | Authenticates and executes all operations                                                                                           |
 
-## Demo
+# How to run the sample scipt
 
-A demo app is included to show how to use the project.
+1. Clone it locally
+    ```powershell
+    git clone https://github.com/Azure-Samples/netappfiles-cli-pool-change-sample.git
+    ```
+1. Open a bash session and execute the following Run the script
 
-To run the demo, follow these steps:
+	 * Change folder to **netappfiles-cli-pool-change-sample\src\**
+	 * Open anf-pool-change-sh.sh and edit all the parameters
+	 * Save and close
+	 * Run the following command
+	 ``` Terminal
+	 ./anf-pool-change.sh
+	 ```
 
-(Add steps to start up the demo)
+Sample output
+![e2e execution](./media/e2e-execution.PNG)
 
-1.
-2.
-3.
+# References
 
-## Resources
-
-(Any additional resources or related projects)
-
-- Link to supporting information
-- Link to similar sample
-- ...
+* [Azure NetApp Files Az commands](https://docs.microsoft.com/en-us/cli/azure/netappfiles?view=azure-cli-latest)
+* [Resource limits for Azure NetApp Files](https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-resource-limits)
+* [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/quickstart)
+* [Download Azure SDKs](https://azure.microsoft.com/downloads/)
+ 
