@@ -52,7 +52,7 @@ Then it will create a single Volume in the Premium tier Capacity Pool.
 Finally, the sample will perform the pool change operation on the Volume by moving it to the Standard tier Capacity Pool.
 
 There is a section in the code dedicated to remove created resources. By default this sample will not remove all created resources;
-this behavior is controlled by a string variable called 'SHOULD_CLEANUP' in the anf-pool-change.sh class. If you want to erase all resources right after the
+this behavior is controlled by a string variable called 'SHOULD_CLEANUP' in the anf-pool-change.sh file. If you want to erase all resources right after the
 creation operations, set this variable to 'true'.
 
 # How the project is structured
@@ -72,7 +72,7 @@ The following table describes all files within this solution:
 1. Open a bash session and execute the following Run the script
 
 	 * Change folder to **netappfiles-cli-pool-change-sample\src\**
-	 * Open anf-pool-change-sh.sh and edit all the parameters
+	 * Open anf-pool-change-sh and edit all the parameters
 	 * Save and close
 	 * Run the following command
 	 ``` Terminal
