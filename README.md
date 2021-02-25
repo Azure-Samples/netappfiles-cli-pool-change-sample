@@ -6,7 +6,7 @@ languages:
 products:
 - azure
 - azure-netapp-files
-description: "This project demonstrates how to perform a pool change on a Volume for Microsoft.NetApp resource provider using CLI NetAppFile module.
+description: This project demonstrates how to perform a pool change on a Volume for Microsoft.NetApp resource provider using CLI NetAppFile module.
 ---
 
 # Azure NetAppFiles Pool Change Script Sample for Azure CLI 
@@ -17,7 +17,7 @@ resource provider.
 In this sample application we perform the following operations:
 
 * Creations
-    * ANF Account
+    * Azure NetApp Files Account
     * Primary Capacity Pool in service level Premium
     * Secondary Capacity Pool in service level Standard
     * Volume in the Primary pool
@@ -27,7 +27,7 @@ In this sample application we perform the following operations:
     * Volume
     * Primary Capacity Pool
     * Secondary Capacity Pool
-    * ANF Account
+    * Azure NetApp Files Account
 
 >Note: The cleanup execution is disabled by default. If you want to run this end to end with the cleanup, please
 >change value of boolean variable 'SHOULD_CLEANUP' in anf-pool-change.sh
