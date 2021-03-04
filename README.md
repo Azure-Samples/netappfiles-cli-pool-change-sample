@@ -11,7 +11,7 @@ description: This project demonstrates how to perform a pool change on a Volume 
 
 # Azure NetAppFiles Pool Change Script Sample for Azure CLI 
 
-This project demonstrates how to use CLI NetAppFile module to perform a pool change on a Volume for the Microsoft.NetApp
+This project demonstrates how to use Azure CLI NetAppFile module to perform a pool change on a Volume for the Microsoft.NetApp
 resource provider.
 
 In this sample application we perform the following operations:
