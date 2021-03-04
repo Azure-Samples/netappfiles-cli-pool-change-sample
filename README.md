@@ -6,7 +6,7 @@ languages:
 products:
 - azure
 - azure-netapp-files
-description: This project demonstrates how to perform a pool change on a Volume for Microsoft.NetApp resource provider using CLI NetAppFile module.
+description: This project demonstrates how to perform a pool change on a Volume for Microsoft.NetApp resource provider using Azure CLI NetAppFile module.
 ---
 
 # Azure NetAppFiles Pool Change Script Sample for Azure CLI 
