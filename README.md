@@ -18,15 +18,15 @@ In this sample application we perform the following operations:
 
 * Creations
     * Azure NetApp Files Account
-    * Primary Capacity Pool in service level Premium
-    * Secondary Capacity Pool in service level Standard
-    * Volume in the Primary pool
+    * Source Capacity Pool in service level Premium
+    * Destination Capacity Pool in service level Standard
+    * Volume in the source capacity pool
 * Updates
-    * Perform pool change, moving Volume from Primary capacity pool to Secondary capacity pool
+    * Perform pool change, moving Volume from source capacity pool to the destination capacity pool
 * Deletions
     * Volume
-    * Primary Capacity Pool
-    * Secondary Capacity Pool
+    * Source Capacity Pool
+    * Destination Capacity Pool
     * Azure NetApp Files Account
 
 >Note: The cleanup execution is disabled by default. If you want to run this end to end with the cleanup, please
@@ -75,7 +75,7 @@ The following table describes all files within this solution:
 	 * Open anf-pool-change-sh and edit all the parameters
 	 * Save and close
 	 * Run the following command
-	 ``` Terminal
+	 ``` bash
 	 ./anf-pool-change.sh
 	 ```
 
@@ -84,6 +84,7 @@ Sample output
 
 # References
 
+* [Dynamically change a service level of a volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/dynamic-change-volume-service-level)
 * [Azure NetApp Files Az commands](https://docs.microsoft.com/en-us/cli/azure/netappfiles?view=azure-cli-latest)
 * [Resource limits for Azure NetApp Files](https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-resource-limits)
 * [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/quickstart)
